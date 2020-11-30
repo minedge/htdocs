@@ -2,8 +2,8 @@
     <head>
     </head>
     <body>
-        Now PHP Loaded
         <?
+            echo "Before DB Connection\n";
             $db_host="localhost";   
             $db_user="root";
             $db_passwd="1324"; 
@@ -13,7 +13,8 @@
             $sql = "SELECT * FROM minedge";
             $result = mysqli_query($conn, $sql);
             $row = mysqli_fetch_array($result);
-        
+
+            echo "After DB Connection\n";
             echo $row[0];
         ?>
     </body>
