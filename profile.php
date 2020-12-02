@@ -6,8 +6,6 @@
 
     $id = $_POST['ID'];
 
-    select name from userinfo where id='$id';
-
     $conn = mysqli_connect($db_host, $db_user, $db_passwd, $db_name);
     $sql = "SELECT name FROM userinfo WHERE id='$id'";
     $result = mysqli_query($conn, $sql);
