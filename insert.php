@@ -5,12 +5,18 @@
     $db_name="bucketlist";
 
     $id = $_POST['ID'];
-    $pw = $_POST['PW'];
-    $name = $_POST['NAME'];
+    $title = $_POST['TITEL'];
+    $local = $_POST['LOCAL'];
+    $complete = $_POST['COMPLT'];
+    $tdate = $_POST['TDATE'];
+    $body = $_POST['BODY'];
+    $ident_num = $_POST['IDNT_NUM'];
 
     $conn = mysqli_connect($db_host, $db_user, $db_passwd, $db_name);
-    $sql = "INSERT INTO userinfo VALUES (null,'$id','$pw','$name')";
-    $result = mysqli_query($conn, $sql);
-    $sql = "CREATE TABLE $id( ident_num int not null AUTO_INCREMENT, title varchar(20) default null, locate int default null, complete int default null, target_date date default null, body varchar(100) default null )default charset=utf8";
+    if($ident_num == "0"){
+        $sql = "INSERT INTO $id VALUES (null, '$title', '$local', '$complete', '$tdate', '$body')";
+    }else{
+        $sql = "UPDATE $id SET title='$title', locate='$local', complete='$complete', target_date='$tdate', body='$body' WHERE ident='$ident_num'";
+    }
     $result = mysqli_query($conn, $sql);
 ?>
