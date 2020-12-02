@@ -16,7 +16,7 @@
         $sql = "SELECT name FROM userinfo WHERE id='$id'";
         $result = mysqli_query($conn, $sql);
         $row = mysqli_fetch_array($result);
-        echo '1|';
+        echo '1@';
         echo $row[0];
     }
     else
