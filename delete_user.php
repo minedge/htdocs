@@ -9,4 +9,6 @@
     $conn = mysqli_connect($db_host, $db_user, $db_passwd, $db_name);
     $sql = "DROP TABLE $id";
     $result = mysqli_query($conn, $sql);
+    $sql = "DELETE FROM userinfo WHERE name='$id'";
+    $result = mysqli_query($conn, $sql);
 ?>
