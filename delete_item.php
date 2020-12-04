@@ -10,4 +10,5 @@
     $conn = mysqli_connect($db_host, $db_user, $db_passwd, $db_name);
     $sql = "DELETE FROM $id WHERE ident='$ident_num'";
     $result = mysqli_query($conn, $sql);
+    mysql_close($conn);
 ?>
