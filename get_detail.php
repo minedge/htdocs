@@ -12,7 +12,9 @@
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_array($result);
 
-    echo $row[0];
-    echo '@';
-    echo $row[1];
+    $arr = array();
+    $arr[0]["detail"] = $row[0];
+    $arr[0]["bitmap"] = base64_encode($row[1]);
+
+    print(json_encode($arr));
 ?>
