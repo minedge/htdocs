@@ -3,18 +3,33 @@
     $db_user="root";
     $db_passwd="1324"; 
     $db_name="bucketlist";
+    $conn = mysqli_connect($db_host, $db_user, $db_passwd, $db_name);
 
     $id = $_POST['ID'];
-    $target = $_POST['TARGET'];
-    $type = $_POST['TYPE'];
+    $search = $_POST['SRCH'];
+    $type_date = $_POST['TYPE_D'];
+    $type_locate = $_POST['TYPE_L'];
+    $type_complete = $_POST['TYPE_C'];
 
+    //ORDER BY target_date $type_date, locate $type_locate, complete $type_complete";
+    $sql = "SELECT * FROM $id WHERE title LIKE '%$search%'";
 
-    $conn = mysqli_connect($db_host, $db_user, $db_passwd, $db_name);
-    if($type == "1"){
-        $sql = "SELECT * FROM $id ORDER BY $target asc";
-    }else{
-        $sql = "SELECT * FROM $id ORDER BY $target desc";
+    if(($type_date != "@" || $type_locate != "@") || $type_complete != "@"){
+        $sql = $sql." ORDER BY ";
     }
+
+    if($type_date != "@"){
+        $sql = $sql."target_date $type_date";
+    }
+    if($type_locate != "@"){
+        if($type_date != "@") $sql = $sql.", ";
+        $sql = $sql."locate $type_locate";
+    }
+    if($type_complete != "@"){
+        if($type_date != "@" || $type_locate != "@") $sql = $sql.", ";
+        $sql = $sql."complete $type_complete";
+    }
+
     $result = mysqli_query($conn, $sql);
     
     while ($row = mysqli_fetch_array($result)){
