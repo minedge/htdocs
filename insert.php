@@ -10,7 +10,7 @@
     $local = $_POST['LOCAL'];
     $complete = $_POST['COMPLT'];
     $tdate = $_POST['TDATE'];
-    $body = $_POST['BODY'];
+    $body = mysqli_real_escape_string($conn, $_POST['BODY']);
     $ident_num = $_POST['IDNT_NUM'];
 
     $image = $_POST['IMAGE'];
