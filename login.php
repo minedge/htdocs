@@ -22,5 +22,4 @@
     else
         echo '0';
 
-    mysql_close($conn);
 ?>

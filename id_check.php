@@ -15,6 +15,5 @@
         echo '0';
     }else{
         echo '1';
-    }  
-    mysql_close($conn);
+    }
 ?>

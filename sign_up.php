@@ -13,5 +13,4 @@
     $result = mysqli_query($conn, $sql);
     $sql = "CREATE TABLE $id( ident int not null AUTO_INCREMENT, title varchar(20) default null, locate int default null, complete int default null, target_date date default null, body varchar(100) default null, image longblob not null, primary key(ident) )default charset=utf8";
     $result = mysqli_query($conn, $sql);
-    mysql_close($conn);
 ?>

@@ -33,5 +33,4 @@
 
     $result = mysqli_query($conn, $sql);
 
-    mysql_close($conn);
 ?>

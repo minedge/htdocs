@@ -15,5 +15,4 @@
     echo $row[0];
     echo '@';
     echo $row[1];
-    mysql_close($conn);
 ?>

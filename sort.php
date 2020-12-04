@@ -29,5 +29,4 @@
         echo $row[4];
         echo '@';
      }
-     mysql_close($conn);
 ?>
