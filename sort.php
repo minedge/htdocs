@@ -18,16 +18,16 @@
         $sql = $sql." ORDER BY ";
     }
 
-    if($type_date != "@"){
-        $sql = $sql."target_date $type_date";
+    if($type_complete != "@"){
+        $sql = $sql."complete $type_complete";
     }
     if($type_locate != "@"){
-        if($type_date != "@") $sql = $sql.", ";
+        if($type_complete != "@") $sql = $sql.", ";
         $sql = $sql."locate $type_locate";
     }
-    if($type_complete != "@"){
-        if($type_date != "@" || $type_locate != "@") $sql = $sql.", ";
-        $sql = $sql."complete $type_complete";
+    if($type_date != "@"){
+        if($type_complete != "@" || $type_locate != "@") $sql = $sql.", ";
+        $sql = $sql."target_date $type_date";
     }
 
     $result = mysqli_query($conn, $sql);
